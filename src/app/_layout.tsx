@@ -1,9 +1,12 @@
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
-import { Stack } from 'expo-router';
+import { Slot, Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
+import {  StatusBar, StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+
 
 
 export {
@@ -46,10 +49,25 @@ export default function RootLayout() {
 function RootLayoutNav() {
 
   return (
+    <View style={styles.containerApp}>
+    <SafeAreaView style={styles.container}>
+
+      <Slot  />
     
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-      </Stack>
+    </SafeAreaView>
+    </View>
 
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: 'gray',
+    
+  },
+  containerApp:{
+    flex: 1,
+    backgroundColor: 'red',
+  }
+});
