@@ -1,6 +1,10 @@
 import axios from 'axios';
 import { useState } from 'react';
-import { FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { FlatList, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import {Camera} from 'expo-camera'
+import { useDataBible } from '@/context/ContextBible';
+import { Href, router } from 'expo-router';
+
 
 type dataBibletype = {
     number:number
@@ -9,25 +13,32 @@ type dataBibletype = {
 }[]
 
 export default function TabOneScreen() {
+  const {booksBible,setBooksBible}= useDataBible()
   const [verses,setVerses] = useState([] as dataBibletype)
+  const [chapter,setchapter] = useState("1")
   async function getBible(){
-    const result = await axios.get("https://www.abibliadigital.com.br/api/verses/nvi/sl/1")
-    setVerses(result.data.verses)
-    console.log(result.data.verses)
+    
+  
   }
   return (
+    
     <View style={styles.container}>
-      <Text style={styles.title}>Tab One</Text>
-      <TouchableOpacity onPress={()=>{getBible()}} style={{width:120, height:40, backgroundColor:"black", alignItems:'center', justifyContent:"center"}}>
-        <Text style={{color:"white"}}>pegar capitulo</Text>
-      </TouchableOpacity>
+
       <FlatList
-      data={verses}
+      data={booksBible}
+      style={{width:"100%", padding:8}}
+
       renderItem={({item})=>(
-        <Text style={{backgroundColor:item.number%2===0?"white":"#F0F0F0"}}>{item.number} {item.text}</Text>
+        
+        <TouchableOpacity onPress={()=>{router.push({pathname:"/(tabs)/stackscreen/chaptersBible", params:{name:item.name,number:item.chapters}})}}>
+        <View style={{width:"100%", backgroundColor:"#F7F7F7", padding:12, margin:4}}>
+        <Text style={{ width:"100%", fontWeight:'600'}}>{item.name}</Text>
+        </View>
+        </TouchableOpacity>
+       
       )}
       />
-      <View style={styles.separator}   />
+
     </View>
   );
 }
@@ -37,6 +48,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+
   },
   title: {
     fontSize: 20,

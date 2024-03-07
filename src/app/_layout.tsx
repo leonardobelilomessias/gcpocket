@@ -1,3 +1,4 @@
+import { BibleContex } from '@/context/ContextBible';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
@@ -51,8 +52,10 @@ function RootLayoutNav() {
   return (
     <View style={styles.containerApp}>
     <SafeAreaView style={styles.container}>
+    <BibleContex>
 
       <Slot  />
+    </BibleContex>
     
     </SafeAreaView>
     </View>

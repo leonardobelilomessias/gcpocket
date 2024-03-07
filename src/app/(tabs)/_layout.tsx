@@ -36,6 +36,9 @@ export default function TabLayout() {
       <Tabs.Screen name="two"options={{title: 'Biblia',tabBarIcon: ({ color }) => <TabBarIcon name="book" color={color} />,}}/>
 
       <Tabs.Screen name="profile"options={{title: 'Profile',tabBarIcon: ({ color }) => <TabBarIcon name="user" color={color} />, }}/>
+      <Tabs.Screen name="stackscreen"options={{ headerShown:true, headerStatusBarHeight:0, headerStyle:false, headerTitle:()=>null,header:()=>null,tabBarButton:()=>null }}/>
+
+      
     
     </Tabs>
   </>
