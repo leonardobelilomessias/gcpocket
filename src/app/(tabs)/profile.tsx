@@ -35,6 +35,9 @@ export default function TabTwoScreen() {
             </View>
         <View style={{width:300, marginVertical:8}}>
         <Text style={{fontWeight:'bold'}}>Mural</Text>
+        <View style={{width:250, height:100, backgroundColor:graysoft, padding:8}}>
+        <Text style={{color:'gray'}}> Teste da gravação  tudo vamos ver se funcional</Text>
+        </View>
         
         </View>
     </View>
