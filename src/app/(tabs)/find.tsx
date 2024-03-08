@@ -12,7 +12,7 @@ type dataBibletype = {
   
 }[]
 
-export default function TabOneScreen() {
+export default function find() {
   const {booksBible,setBooksBible}= useDataBible()
   const [verses,setVerses] = useState([] as dataBibletype)
   const [chapter,setchapter] = useState("1")
@@ -25,7 +25,7 @@ export default function TabOneScreen() {
     <View style={styles.container}>
      <View style={{backgroundColor:'white', height:200, margin:8, padding:8}}>
       
-      <Text>Palavra do dia</Text>
+      <Text>Buscar</Text>
       </View> 
 
     </View>

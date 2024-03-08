@@ -19,8 +19,8 @@ export default  function chaptersBible(){
             <View style={{ flexDirection:"row",flexWrap:'wrap',alignItems:"center", alignContent:'center', }}>
 
             {elemet.map((number)=>(
-                <View style={{backgroundColor:"white", width:50, height:50, alignItems:"center", alignContent:'center', margin:4, justifyContent:"center"}}>
-                <Text key={number} >{number}</Text>
+                <View key={number} style={{backgroundColor:"white", width:50, height:50, alignItems:"center", alignContent:'center', margin:4, justifyContent:"center"}}>
+                <Text  >{number}</Text>
                 </View>
                 ))}
             </View>
