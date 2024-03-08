@@ -1,37 +1,61 @@
 import axios from 'axios';
 import { useState } from 'react';
-import { FlatList, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
-import {Camera} from 'expo-camera'
-import { useDataBible } from '@/context/ContextBible';
-import { Href, router } from 'expo-router';
+import { FlatList, Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
-
-type dataBibletype = {
-    number:number
-    text:string
-  
-}[]
 
 export default function find() {
-  const {booksBible,setBooksBible}= useDataBible()
-  const [verses,setVerses] = useState([] as dataBibletype)
-  const [chapter,setchapter] = useState("1")
-  async function getBible(){
-    
-  
-  }
+
   return (
     
     <View style={styles.container}>
      <View style={{backgroundColor:'white', height:200, margin:8, padding:8}}>
       
       <Text>Buscar</Text>
-      </View> 
+      <CardGc/>
 
+      </View>
     </View>
   );
 }
 
+function CardGc(){
+  return(
+    <View style={styles2.containerCard} >
+        <View style={styles2.imageCard}>
+          <Image alt='image' src=''/>
+        </View>
+        <View>
+            <Text style={styles2.titleCard}>my name</Text>
+            <Text style={styles2.descriptionCard}>Local</Text>
+        </View>
+    </View>
+  )
+}
+
+const styles2 = StyleSheet.create({
+  containerCard: {
+    height:70,
+    backgroundColor:"white",
+    flexDirection:"row",
+    borderColor:"gray",
+    borderWidth:1,
+    width:"100%"
+  },
+  titleCard: {
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  descriptionCard: {
+
+  },
+  imageCard:{
+    width:60,
+    height:60,
+    borderRadius:60,
+    backgroundColor:"gray",
+    marginRight:12
+  }
+});
 const styles = StyleSheet.create({
   container: {
     flex: 1,
