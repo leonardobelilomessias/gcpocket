@@ -1,9 +1,10 @@
 import axios from 'axios';
 import { useState } from 'react';
-import {  Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import {  Image, Pressable, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import {Camera} from 'expo-camera'
 import { Entypo ,Ionicons, FontAwesome} from '@expo/vector-icons';
 import groupGc from '@/assets/gcGoupImage.jpg'
+import { router } from 'expo-router';
 
 type CardGcProps={
     id:string
@@ -16,6 +17,8 @@ type CardGcProps={
 }
 export function CardGc({day,id,local,name,time,type,leader}:CardGcProps){
     return(
+    <Pressable onPress={()=>router.push("/(tabs)/stackRoutes/gcProfile")}>
+
       <View  style={styles2.cardContainer}>
         <View style={styles2.boxAvatar} >
             <View style={styles2.imageCard}>
@@ -35,6 +38,7 @@ export function CardGc({day,id,local,name,time,type,leader}:CardGcProps){
           <Text style={styles2.footerInfoText}>{day} às {time}</Text>
         </View>
       </View>
+    </Pressable>
     )
   }
 

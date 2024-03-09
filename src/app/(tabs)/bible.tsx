@@ -9,6 +9,7 @@ import { Href, router } from 'expo-router';
 type dataBibletype = {
     number:number
     text:string
+    abbrev:string
   
 }[]
 
@@ -30,7 +31,7 @@ export default function bible() {
       extraData={booksBible}
       renderItem={({item})=>(
         
-        <TouchableOpacity onPress={()=>{router.push({pathname:"/(tabs)/stackscreen/chaptersBible", params:{name:item.name,number:item.chapters}})}}>
+        <TouchableOpacity onPress={()=>{router.push({pathname:"/(tabs)/stackRoutes/chaptersBible", params:{name:item.name,number:item.chapters, abbrev:item.abbrev.pt}})}}>
         <View style={{width:"100%", backgroundColor:"#F7F7F7", padding:12, margin:4}}>
         <Text style={{ width:"100%", fontWeight:'600'}}>{item.name}</Text>
         </View>
