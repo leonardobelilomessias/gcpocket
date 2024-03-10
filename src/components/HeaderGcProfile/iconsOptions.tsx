@@ -5,14 +5,14 @@ import { ReactSVG, ReactSVGElement } from "react";
 import { MaterialIcons } from '@expo/vector-icons';
 import { FontAwesome6 } from '@expo/vector-icons';
 import { Href, HrefObject, router } from "expo-router";
-import { linkToLessons } from "@/constants/Links";
+import { linkToDynamics, linkToLessons, linkToMembersGc } from "@/constants/Links";
 
 export function IconsOptions({id_gc, gc_name}:{id_gc:string, gc_name:string}){
     return(
         <View style={styles.container}>
             <Item  link={linkToLessons} gc_name={gc_name} id_gc="0565"color="#ABEBC6" title="Liçoes" icon={<MaterialIcons name="menu-book" size={24} color="white" /> }/>
-            <Item  link="/(tabs)/stackRoutes/lessons" gc_name={gc_name} id_gc="0565"color="#85C1E9"title="Qeubra-Gelo" icon={<FontAwesome5 name="cubes" size={24} color="white" /> }/>
-            <Item  link="/(tabs)/stackRoutes/lessons" gc_name={gc_name} id_gc="0565"color="pink"title="Membros" icon={<FontAwesome6 name="people-group" size={24} color="white" /> }/>
+            <Item  link={linkToDynamics} gc_name={gc_name} id_gc="0565"color="#85C1E9"title="Qeubra-Gelo" icon={<FontAwesome5 name="cubes" size={24} color="white" /> }/>
+            <Item  link={linkToMembersGc} gc_name={gc_name} id_gc="0565"color="pink"title="Membros" icon={<FontAwesome6 name="people-group" size={24} color="white" /> }/>
         </View>
     )
 }
