@@ -5,8 +5,9 @@ import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native
 import { useFonts } from 'expo-font';
 import { Slot, Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
+import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
-import {  StatusBar, StyleSheet, Text, View } from 'react-native';
+import {   StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 
@@ -52,7 +53,6 @@ function RootLayoutNav() {
 
   return (
     <View style={styles.containerApp}>
-      <StatusBar backgroundColor={"black"} barStyle={"light-content"}/>
       <SafeAreaView style={styles.container}>
         <AuthDataProvider>
         <BibleContex>

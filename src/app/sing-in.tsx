@@ -2,12 +2,14 @@ import { Singin } from '@/Screens/AccessScreens/Singin';
 import { LoadingAuthRoutes } from '@/Screens/LoadScreens/LoadingAuthRoutes';
 import { useDataUser } from '@/context/AuthContext';
 import { Redirect, router } from 'expo-router';
+import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
 import { View } from 'react-native';
 
 export default function SingIn() {
-//const {dataAgent,tokenAgent, loading} = useDataAgent()
- useEffect(()=>{
+const {user} = useDataUser()
+console.log("user in sing in", user?.refreshToken)
+  useEffect(()=>{
      const loading = false
      const tokenAgent = ""
 
@@ -16,13 +18,15 @@ export default function SingIn() {
 if(false)return(
 <LoadingAuthRoutes/>
 )
-if(false){
-  return<Redirect href={'/'}/>
+if(!!user?.refreshToken){
+  return<Redirect href={'/(tabs)'}/>
   
 }
   return (
-
-          <Singin/>
+          <>
+            <StatusBar backgroundColor='black'/>
+            <Singin/>
+          </>
 
   );
 }

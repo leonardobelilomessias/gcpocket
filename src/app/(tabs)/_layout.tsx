@@ -3,9 +3,9 @@ import{ FontAwesome, FontAwesome5, FontAwesome6} from '@expo/vector-icons';
 import { Link, Redirect, Tabs } from 'expo-router';
 import { Pressable, Text, View } from 'react-native';
 import Colors from '@/constants/Colors';
-import { StatusBar } from 'expo-status-bar';
 import { Entypo } from '@expo/vector-icons';
 import { LoadingAuthRoutes } from '@/Screens/LoadScreens/LoadingAuthRoutes';
+import { useDataUser } from '@/context/AuthContext';
 
 
 // You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
@@ -18,24 +18,25 @@ function TabBarIcon(props: {
 
 export default function TabLayout() {
   const loading = false
-  const tokenAgent = ""
+  const { user} = useDataUser()
+
   if(loading)return(
     <LoadingAuthRoutes/>
       )
-      if(!tokenAgent){
+      if(!user?.refreshToken){
         return(
           <Redirect href={'/sing-in'}/>
         )
       }
   return (
     <>
-    <StatusBar backgroundColor='black' style='dark' translucent={false}/>
-    <Tabs
+    <Tabs  
       screenOptions={{
+      
         tabBarActiveTintColor: "black",
         // Disable the static render of the header on web
         // to prevent a hydration error in React Navigation v6.
-        headerStyle:{ height:50}, headerStatusBarHeight:0, headerTitleContainerStyle:{padding:0, height:50}
+        headerStyle:{ height:50},  headerTitleContainerStyle:{padding:0, height:50}
       }}>
       <Tabs.Screen name="index" options={{headerTitle:()=>null,title: 'Home',tabBarIcon: ({ color }) => <Entypo name="home" size={28} color={color} />,
       headerRight: () => (
@@ -53,7 +54,7 @@ export default function TabLayout() {
       <Tabs.Screen name="find"options={{title: 'Buscar',tabBarIcon: ({ color }) => <TabBarIcon name="search" color={color} />, }}/>
       <Tabs.Screen name="profile"options={{title: 'Profile',tabBarIcon: ({ color }) => <TabBarIcon name="user" color={color} />, }}/>
 
-      <Tabs.Screen name="stackRoutes"options={{ headerShown:true, headerStatusBarHeight:0, headerStyle:false, headerTitle:()=>null,header:()=>null,tabBarButton:()=>null }}/>
+      <Tabs.Screen name="stackRoutes"options={{ headerShown:true, headerStyle:false, headerTitle:()=>null,header:()=>null,tabBarButton:()=>null }}/>
     </Tabs>
   </>
   );
