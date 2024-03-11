@@ -11,7 +11,7 @@ type dataUserAuthProps = {
 }
 
 type  authProps ={
-    singin:({email,password}:{email:string, password:string})=>void
+    singin:(data:any)=>void
     singup:({email,password}:{email:string, password:string})=>void
     user:User |null
     socialSingin:()=> void
@@ -26,9 +26,9 @@ function AuthProvide({children}:{children:ReactElement}){
     const [load, setLoad] = useState(false)
     const auth = FIREBASE_AUTH
     async function singin({email,password}:{email:string, password:string}){
-        console.log('singin', email, password)
         setLoad(true)
         try{
+            console.log('teste handle submit', email, password)
             const response = await signInWithEmailAndPassword(auth,email, password)
             alert('Ckeck you email')
             setUser(response.user)

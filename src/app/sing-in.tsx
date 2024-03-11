@@ -8,7 +8,6 @@ import { View } from 'react-native';
 
 export default function SingIn() {
 const {user} = useDataUser()
-console.log("user in sing in", user?.refreshToken)
   useEffect(()=>{
      const loading = false
      const tokenAgent = ""
