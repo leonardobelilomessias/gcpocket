@@ -1,3 +1,4 @@
+import { AuthDataProvider } from '@/context/AuthContext';
 import { BibleContex } from '@/context/ContextBible';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
@@ -51,13 +52,14 @@ function RootLayoutNav() {
 
   return (
     <View style={styles.containerApp}>
-    <SafeAreaView style={styles.container}>
-    <BibleContex>
-
-      <Slot  />
-    </BibleContex>
-    
-    </SafeAreaView>
+      <StatusBar backgroundColor={"black"} barStyle={"light-content"}/>
+      <SafeAreaView style={styles.container}>
+        <AuthDataProvider>
+        <BibleContex>
+          <Slot  />
+        </BibleContex>
+        </AuthDataProvider>
+      </SafeAreaView>
     </View>
 
   );
@@ -66,11 +68,11 @@ function RootLayoutNav() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'gray',
+    backgroundColor: 'white',
     
   },
   containerApp:{
     flex: 1,
-    backgroundColor: 'red',
+    backgroundColor: 'white',
   }
 });

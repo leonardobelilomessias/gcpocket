@@ -115,7 +115,7 @@ function ListDevotional(){
     container: {
       flex: 1,
       padding:100,
-      backgroundColor:'red'
+      
     },
     map: {
       width: '100%',

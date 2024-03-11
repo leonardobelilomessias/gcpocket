@@ -1,5 +1,5 @@
 const linkToLessons="/(tabs)/stackRoutes/lessons" 
-const linkToGcProfile=""
+const linkToGcProfile="/(tabs)/stackRoutes/gcProfile"
 const linktoLesson="/(tabs)/stackRoutes/lesson"
 const linkToDynamics = "/(tabs)/stackRoutes/dynamics"
 const linkToDynamic = "/(tabs)/stackRoutes/dynamic"

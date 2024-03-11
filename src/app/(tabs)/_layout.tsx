@@ -1,10 +1,11 @@
 import React from 'react';
 import{ FontAwesome, FontAwesome5, FontAwesome6} from '@expo/vector-icons';
-import { Link, Tabs } from 'expo-router';
+import { Link, Redirect, Tabs } from 'expo-router';
 import { Pressable, Text, View } from 'react-native';
 import Colors from '@/constants/Colors';
 import { StatusBar } from 'expo-status-bar';
 import { Entypo } from '@expo/vector-icons';
+import { LoadingAuthRoutes } from '@/Screens/LoadScreens/LoadingAuthRoutes';
 
 
 // You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
@@ -16,10 +17,19 @@ function TabBarIcon(props: {
 }
 
 export default function TabLayout() {
-
+  const loading = false
+  const tokenAgent = ""
+  if(loading)return(
+    <LoadingAuthRoutes/>
+      )
+      if(!tokenAgent){
+        return(
+          <Redirect href={'/sing-in'}/>
+        )
+      }
   return (
     <>
-    <StatusBar backgroundColor='red' style='dark' translucent={false}/>
+    <StatusBar backgroundColor='black' style='dark' translucent={false}/>
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: "black",

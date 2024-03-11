@@ -6,7 +6,8 @@ import { useDataBible } from '@/context/ContextBible';
 import { Href, router } from 'expo-router';
 import { Entypo ,Ionicons, FontAwesome} from '@expo/vector-icons';
 import groupGc from '@/assets/gcGoupImage.jpg'
-import { SearchScreen } from '@/Screens/SearchScreen';
+import { SearchScreen } from '@/Screens/TabRoutesScreens/SearchScreen';
+import { HomeScreen } from '@/Screens/TabRoutesScreens/HomeSreen';
 
 type dataBibletype = {
     number:number
@@ -16,6 +17,6 @@ type dataBibletype = {
 
 export default function TabOneScreen() {
   return (
-    <SearchScreen/>
+    <HomeScreen/>
   );
 }
