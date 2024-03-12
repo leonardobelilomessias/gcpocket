@@ -7,8 +7,17 @@ import { useEffect } from 'react';
 import { View } from 'react-native';
 
 export default function singUp() {
+const {user,token,loadLogin} = useDataUser()
 
 
+if(loadLogin){
+  return<LoadingAuthRoutes/>
+  
+}
+  if(token){
+    return<Redirect href={'/(tabs)'}/>
+    
+  }
   return (
 
           <Singup/>

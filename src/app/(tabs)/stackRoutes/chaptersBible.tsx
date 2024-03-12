@@ -8,10 +8,7 @@ export default  function chaptersBible(){
         elemet.push(i)
         
     }
-   
-    console.log(elemet)
-    console.log(number)
-    console.log(abbrev)
+
 
     return(
         <View>

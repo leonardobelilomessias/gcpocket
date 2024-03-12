@@ -10,13 +10,12 @@ import { useForm, Controller} from 'react-hook-form'
 import {zodResolver} from '@hookform/resolvers/zod'
 import * as zod from 'zod'
 import { ButtonSocialLogin } from "@/components/Buttons/ButtonSocialLogin";
-import { ButtonCreateAccount } from "@/components/Buttons/ButtonCreateAccount";
 import { ButtonLogin } from "@/components/Buttons/ButtonLogin";
 
 
 const singSchema= zod.object({
-    email:zod.string().email("Email invalido"),
-    password:zod.string().min(6, "minimo 6 amigo"),
+    email:zod.string().email("Digite um email valido"),
+    password:zod.string().min(6,  "Senha de no minimo 6 caracteres"),
 })
 type schemaType = zod.infer<typeof singSchema>
 export function FormLogin(){
@@ -31,7 +30,7 @@ export function FormLogin(){
              <Image source={imageLogin} style={{width:"85%", height:270}}/>
              <View style={{width:"90%"}}>
                 <Controller  defaultValue="" rules={{required:{message:"nececitamos", value:true}}} name="email" control={control}   render={
-                ({field:{onChange, value}})=> (<InputAccount error={errors?.email}  register={register("email",{required:{message:"helo",value:true}})}  type="emailAddress" element={value} setElement={onChange}  name="Email" icon={<MaterialIcons name="mail-outline" size={24} color={errors.email?.message?"red":"#808B96"} />}/>)
+                ({field:{onChange, value}})=> (<InputAccount  error={errors?.email}  register={register("email",{required:{message:"helo",value:true}})}  type="emailAddress" element={value} setElement={onChange}  name="Email" icon={<MaterialIcons name="mail-outline" size={24} color={errors.email?.message?"red":"#808B96"} />}/>)
                 
                 }/>
                 <Controller name="password" defaultValue="" control={control}   render={

@@ -10,26 +10,19 @@ import { useForm, Controller} from 'react-hook-form'
 import {zodResolver} from '@hookform/resolvers/zod'
 import * as zod from 'zod'
 import { ButtonSocialLogin } from "@/components/Buttons/ButtonSocialLogin";
-import { ButtonCreateAccount } from "@/components/Buttons/ButtonCreateAccount";
 import { ButtonLogin } from "@/components/Buttons/ButtonLogin";
 import { FormLogin } from "@/components/Forms/FormLogin";
-
-const singSchema= zod.object({
-    email:zod.string().email(),
-    password:zod.string()
-})
-type schemaType = zod.infer<typeof singSchema>
+import { ButtonForm } from "@/components/Buttons/ButtonForm";
 
 export function Singin(){
-  const {singin} = useDataUser()
-  const [email,setEmail] = useState("")
-  const [password,setPassword] = useState("")
+
+
 
     return(
         <KeyboardAvoidingView style={{ flex: 1 }} behavior="padding" >
             <ScrollView showsVerticalScrollIndicator={false}>
             <FormLogin/>
-            <ButtonCreateAccount/>
+            <ButtonForm title="Criar conta" handleButton={()=>router.push("/sing-up")} />
             </ScrollView>
         </KeyboardAvoidingView>
     )

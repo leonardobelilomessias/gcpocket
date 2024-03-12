@@ -52,7 +52,7 @@ export function ProvideBibleContext({children:children}:{children?:ReactElement}
 
         }
         catch{
-            console.log("error")
+            console.log("error books")
         }
     }
    useEffect(()=>{

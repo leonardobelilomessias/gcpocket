@@ -7,20 +7,26 @@ import { useEffect } from 'react';
 import { View } from 'react-native';
 
 export default function SingIn() {
-const {user} = useDataUser()
+const {user, token,loadLogin} = useDataUser()
+console.log("Aquiii no singiin",token)
   useEffect(()=>{
      const loading = false
      const tokenAgent = ""
 
  },[])
 
-if(false)return(
+if(loadLogin)return(
 <LoadingAuthRoutes/>
 )
-if(!!user?.refreshToken){
+// if(true){
+//   return<Redirect href={'/verifyEmail'}/>
+  
+// }
+if(token){
   return<Redirect href={'/(tabs)'}/>
   
 }
+
   return (
           <>
             <StatusBar backgroundColor='black'/>

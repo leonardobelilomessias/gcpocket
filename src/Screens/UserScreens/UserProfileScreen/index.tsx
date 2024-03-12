@@ -8,7 +8,6 @@ import { DevotionaisUser } from './DevotionaisUser';
 
 
 export  function UserProfileScreen({name,id_user}:{name:string, id_user:string}) {
-    console.log(id_user)
   const graysoft = "#F7F7F7"
   return (
         <ScrollView showsVerticalScrollIndicator={false}>

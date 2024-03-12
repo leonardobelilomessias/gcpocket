@@ -13,7 +13,7 @@ export default function chapterBook(){
     useEffect(()=>{
         axios.get(`https://www.abibliadigital.com.br/api/verses/nvi/ex/2`).then((resp)=>{setVersicles(resp.data.verses)}).catch((er)=>console.log(er))
     },[])
-    console.log('aqui',chapter, abbrev)
+  
     return(
         <View>
             {

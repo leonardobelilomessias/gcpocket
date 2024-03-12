@@ -1,11 +1,16 @@
 import React from 'react';
 import{ FontAwesome, FontAwesome5, FontAwesome6} from '@expo/vector-icons';
-import { Link, Redirect, Tabs } from 'expo-router';
-import { Pressable, Text, View } from 'react-native';
+import { Link, Navigator, Redirect, Tabs, router, useRootNavigationState } from 'expo-router';
+import { Button, Pressable, Text, View } from 'react-native';
 import Colors from '@/constants/Colors';
 import { Entypo } from '@expo/vector-icons';
 import { LoadingAuthRoutes } from '@/Screens/LoadScreens/LoadingAuthRoutes';
 import { useDataUser } from '@/context/AuthContext';
+import { useRoute } from '@react-navigation/native';
+import { FIREBASE_APP, FIREBASE_AUTH ,firebaseConfig} from '@/utils/firebaseConfig';
+import { createUserWithEmailAndPassword ,getAdditionalUserInfo,updateCurrentUser} from 'firebase/auth';
+import auth from  'firebase/auth';
+import firebase from 'firebase/app';
 
 
 // You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
@@ -17,31 +22,46 @@ function TabBarIcon(props: {
 }
 
 export default function TabLayout() {
-  const loading = false
-  const { user} = useDataUser()
+  
+  const { user,token,loadLogin,singout} = useDataUser()
+  const rootNavigation =useRoute()
+  const app = FIREBASE_AUTH
+  async function reloadApp(){
+ 
 
-  if(loading)return(
+  }
+
+  if(loadLogin)return(
     <LoadingAuthRoutes/>
       )
-      if(!user?.refreshToken){
-        return(
-          <Redirect href={'/sing-in'}/>
-        )
-      }
+  if(!token){
+    return(
+      <Redirect href={'/sing-in'}/>
+    )
+  }
+  if(!user?.emailVerified){
+    return(
+      <Redirect href={'/verifyEmail'}/>
+    )
+  }
+
+
   return (
+
     <>
+
     <Tabs  
       screenOptions={{
       
         tabBarActiveTintColor: "black",
         // Disable the static render of the header on web
         // to prevent a hydration error in React Navigation v6.
-        headerStyle:{ height:50},  headerTitleContainerStyle:{padding:0, height:50}
+        headerStyle:{ height:50}, headerStatusBarHeight:0, headerTitleContainerStyle:{padding:0, height:50}
       }}>
       <Tabs.Screen name="index" options={{headerTitle:()=>null,title: 'Home',tabBarIcon: ({ color }) => <Entypo name="home" size={28} color={color} />,
       headerRight: () => (
-              <Pressable>
-                {({ pressed }) => (<FontAwesome name="info-circle"size={25}color={"gray"}style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}/>)}
+              <Pressable onPress={()=>singout()}>
+                {({ pressed }) => (<FontAwesome name="power-off"size={25}color={"gray"}style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}/>)}
               </Pressable>),
             headerLeft:()=>
             <View style={{padding:8, flexDirection:"row", alignItems:'flex-end', }}>
@@ -54,7 +74,7 @@ export default function TabLayout() {
       <Tabs.Screen name="find"options={{title: 'Buscar',tabBarIcon: ({ color }) => <TabBarIcon name="search" color={color} />, }}/>
       <Tabs.Screen name="profile"options={{title: 'Profile',tabBarIcon: ({ color }) => <TabBarIcon name="user" color={color} />, }}/>
 
-      <Tabs.Screen name="stackRoutes"options={{ headerShown:true, headerStyle:false, headerTitle:()=>null,header:()=>null,tabBarButton:()=>null }}/>
+      <Tabs.Screen name="stackRoutes"options={{ headerShown:true, headerStatusBarHeight:0, headerStyle:false, headerTitle:()=>null,header:()=>null,tabBarButton:()=>null }}/>
     </Tabs>
   </>
   );

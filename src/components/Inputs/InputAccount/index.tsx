@@ -12,7 +12,7 @@ export function InputAccount({error,register,nameRegister, name, icon, element,t
         <View style={{flexDirection:"row",alignItems:"center",width:"100%", backgroundColor:"#EAECEE", padding:12,  borderRadius:8, marginVertical:8, borderWidth:error?.message ?0.5:0, borderColor:"red"}}>
             <Text style={{color:"red",fontSize:12, position:"absolute", bottom:-16}}>{error?.message}</Text>
             {icon}
-            <TextInput {...register} textContentType={type} onChangeText={setElement}  secureTextEntry={showPassword?true:false} placeholder={name} value={element} style={{fontSize:18, marginLeft:16, fontWeight:"500", width:"100%"}} placeholderTextColor={"#808B96"} />
+            <TextInput {...register} textContentType={type} autoCapitalize={(type=="emailAddress"|| type==="password")?"none":"sentences"} onChangeText={setElement}  secureTextEntry={(name==="Senha"&&!showPassword)?true:false} placeholder={name} value={element} style={{fontSize:18, marginLeft:16, fontWeight:"500", width:"100%"}} placeholderTextColor={"#808B96"} />
             <Pressable onPress={()=>{setShowPassword(!showPassword)}} style={{position:"absolute", right:0, padding:12}}>
                 {(name==="Senha"&& showPassword)&& <FontAwesome name="eye" size={24} color="gray" />}
                 {(name==="Senha"&& !showPassword)&& <FontAwesome name="eye-slash" size={24} color="gray" />}
