@@ -2,7 +2,7 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Text, View } from "react-native";
 
 export function DevotionalScreen({id_devotional}:{id_devotional:string}){
-
+    console.log(id_devotional)
     return(
         <View style={{alignItems:"center", padding:8, backgroundColor:"white", flex:1}}>
             <MaterialCommunityIcons name="book-open-variant" size={28} color="black" />

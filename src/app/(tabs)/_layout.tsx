@@ -1,5 +1,5 @@
-import React from 'react';
-import{ FontAwesome, FontAwesome5, FontAwesome6} from '@expo/vector-icons';
+import React, { useState } from 'react';
+import{ FontAwesome, FontAwesome5, FontAwesome6, MaterialCommunityIcons} from '@expo/vector-icons';
 import { Link, Navigator, Redirect, Tabs, router, useRootNavigationState } from 'expo-router';
 import { Button, Pressable, Text, View } from 'react-native';
 import Colors from '@/constants/Colors';
@@ -23,7 +23,10 @@ function TabBarIcon(props: {
 }
 
 export default function TabLayout() {
-  
+  const [showMenu, setShowMenu] = useState(false)
+  function toggle(){
+    setShowMenu((preststate)=>!preststate)
+  }
   const { user,token,loadLogin,singout,setToogleMenu} = useDataUser()
   const rootNavigation =useRoute()
 
@@ -72,12 +75,13 @@ export default function TabLayout() {
             </View>
             }}
         />
-      <Tabs.Screen name="bible"options={{title: 'Biblia',tabBarIcon: ({ color }) => <TabBarIcon name="book" color={color} />,}}/>
-      <Tabs.Screen name="create"options={{title: 'Criar',tabBarIcon: ({ color }) => 
-      <Pressable onPress={()=>setToogleMenu()}>
+      <Tabs.Screen name="bible"options={{title: 'Biblia',tabBarIcon: ({ color, }) => <TabBarIcon name="book" color={color} />,}}/>
+      <Tabs.Screen name="create"options={{title: 'Criar',tabBarIcon: ({ color ,size}) => 
+     
         
-        <TabBarIcon name="plus-square" color={color} />
-      </Pressable>
+        <TabBarIcon name='pencil-square' color={color}/>
+
+   
       }}/>
 
       <Tabs.Screen name="find"options={{title: 'Buscar',tabBarIcon: ({ color }) => <TabBarIcon name="search" color={color} />, }}/>
@@ -85,6 +89,10 @@ export default function TabLayout() {
 
       <Tabs.Screen name="stackRoutes"options={{ headerShown:true, headerStatusBarHeight:0, headerStyle:false, headerTitle:()=>null,header:()=>null,tabBarButton:()=>null }}/>
     </Tabs>
+    {
+      showMenu &&
+    <Sheet showMenu={showMenu} setShowMenu={setShowMenu} onClose={toggle}/>
+    }
   </>
   );
 }
