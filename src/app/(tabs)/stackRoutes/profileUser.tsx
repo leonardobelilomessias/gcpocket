@@ -8,7 +8,7 @@ export default function profileUser() {
     const {id_user,name} = useLocalSearchParams()
   const graysoft = "#F7F7F7"
   return (
-    <UserProfileScreen id_user={id_user as string} name={name as string} />
+    <UserProfileScreen   />
   );
 }
 

@@ -40,7 +40,6 @@ export function ProvideBibleContext({children:children}:{children?:ReactElement}
             const books = await storageBooksGet()
             if (books){
                 //const result = await  axios.get("https://www.abibliadigital.com.br/api/books")
-                console.log('certim')
                setBooksBible(books)
 
             }

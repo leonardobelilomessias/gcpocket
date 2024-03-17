@@ -19,9 +19,13 @@
       "**/*"
     ],
     "ios": {
+      "googleServicesFile": "./GoogleService-Info.plist",
+      "bundleIdentifier": "com.gcpocket.fire",
       "supportsTablet": true
     },
     "android": {
+      "googleServicesFile": "./google-services.json",
+      "package": "com.gcpocket.fire",
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
@@ -34,15 +38,27 @@
     },
     "plugins": [
       "expo-router",
-      ["expo-camera",
+      "@react-native-firebase/app",
+      "@react-native-firebase/auth",
+      [
+        "expo-build-properties",
         {
-          "cameraPermission": "Allow $(PRODUCT_NAME) to access your camera",
-          "microphonePermission": "Allow $(PRODUCT_NAME) to access your microphone",
-          "recordAudioAndroid": true
-        }]
+          "ios": {
+            "useFrameworks": "static"
+          }
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "588cd0b3-6f4b-447d-83cb-cea37e98b95c"
+      }
     }
   }
 }

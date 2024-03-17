@@ -5,14 +5,15 @@ import { HeaderUserProfile } from './HeaderUserProfile';
 import { AboutUser } from './AboutUser';
 import { GcUser } from './GcUser';
 import { DevotionaisUser } from './DevotionaisUser';
+import { useDataUser } from '@/context/AuthContext';
 
 
-export  function UserProfileScreen({name,id_user}:{name:string, id_user:string}) {
-  const graysoft = "#F7F7F7"
+export  function UserProfileScreen() {
+  const {user}= useDataUser()
   return (
         <ScrollView showsVerticalScrollIndicator={false}>
             <View style={styles.container}>
-                    <HeaderUserProfile id_user={id_user} name={name} />
+                    <HeaderUserProfile url_image={user.image_profile} id_user={user?.id} name={user?.name} />
                     <AboutUser/>
                     <GcUser/>
                     <DevotionaisUser/>

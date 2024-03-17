@@ -11,6 +11,7 @@ import { FIREBASE_APP, FIREBASE_AUTH ,firebaseConfig} from '@/utils/firebaseConf
 import { createUserWithEmailAndPassword ,getAdditionalUserInfo,updateCurrentUser} from 'firebase/auth';
 import auth from  'firebase/auth';
 import firebase from 'firebase/app';
+import { Sheet } from '@/components/Sheet';
 
 
 // You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
@@ -23,8 +24,9 @@ function TabBarIcon(props: {
 
 export default function TabLayout() {
   
-  const { user,token,loadLogin,singout} = useDataUser()
+  const { user,token,loadLogin,singout,setToogleMenu} = useDataUser()
   const rootNavigation =useRoute()
+
   const app = FIREBASE_AUTH
   async function reloadApp(){
  
@@ -71,6 +73,13 @@ export default function TabLayout() {
             }}
         />
       <Tabs.Screen name="bible"options={{title: 'Biblia',tabBarIcon: ({ color }) => <TabBarIcon name="book" color={color} />,}}/>
+      <Tabs.Screen name="create"options={{title: 'Criar',tabBarIcon: ({ color }) => 
+      <Pressable onPress={()=>setToogleMenu()}>
+        
+        <TabBarIcon name="plus-square" color={color} />
+      </Pressable>
+      }}/>
+
       <Tabs.Screen name="find"options={{title: 'Buscar',tabBarIcon: ({ color }) => <TabBarIcon name="search" color={color} />, }}/>
       <Tabs.Screen name="profile"options={{title: 'Profile',tabBarIcon: ({ color }) => <TabBarIcon name="user" color={color} />, }}/>
 

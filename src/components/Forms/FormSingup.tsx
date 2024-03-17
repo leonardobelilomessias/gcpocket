@@ -11,6 +11,7 @@ import { useDataUser } from "@/context/AuthContext"
 
 const singupSchema= zod.object({
     email:zod.string().email("Digite um email valido"),
+    user_name:zod.string(),
     password:zod.string().min(6, "Senha de no minimo 6 caracteres"),
     passwordConfirm:zod.string().min(6, "Senha de no minimo 6 caracteres"),
 }).refine(
@@ -36,20 +37,23 @@ export  function FormSingup(){
          <ImageForm   width={"90%"} height={270} />
          <View style={{width:"90%"}}>
             <Controller
-
             control={control}
             name="email" 
             render={
-                ({field:{onChange, value}})=> (<InputAccount error={errors?.email}  register={register("email",{required:{message:"helo",value:true}})}  type="emailAddress" element={value} setElement={onChange}  name="Email" icon={<MaterialIcons name="mail-outline" size={24} color={errors.email?.message?"red":"#808B96"} />}/>)
-                
-                }
-            
+                ({field:{onChange, value}})=> (<InputAccount error={errors?.email}  register={register("email",{required:{message:"helo",value:true}})}  type="emailAddress" element={value} setElement={onChange}  name="Email" icon={<MaterialIcons name="mail-outline" size={24} color={errors.email?.message?"red":"#808B96"} />}/>)}
+            />
+
+          <Controller
+            control={control}
+            name="user_name" 
+            render={
+                ({field:{onChange, value}})=> (<InputAccount error={errors?.user_name}  register={register("user_name",{required:{message:"helo",value:true}})}  type="emailAddress" element={value} setElement={onChange}  name="Nome de usuário" icon={<MaterialIcons name="person" size={24} color={errors.email?.message?"red":"#808B96"} />}/>)}
             />
                 <Controller name="password" defaultValue="" control={control}   render={
                 ({field:{onChange, value}})=> (<InputAccount error={errors?.password} register={register("password",{required:{message:"helo",value:true}})} element={value} setElement={onChange} name="Senha" icon={<MaterialIcons name="lock-outline" size={24} color={errors.password?.message?"red":"#808B96"} />}/>)
                 }/>
                 <Controller name="passwordConfirm" defaultValue="" control={control}   render={
-                ({field:{onChange, value}})=> (<InputAccount error={errors?.passwordConfirm} register={register("passwordConfirm",{required:{message:"helo",value:true}})} element={value} setElement={onChange} name="Senha" icon={<MaterialIcons name="lock-outline" size={24} color={errors.password?.message?"red":"#808B96"} />}/>)
+                ({field:{onChange, value}})=> (<InputAccount error={errors?.passwordConfirm} register={register("passwordConfirm",{required:{message:"helo",value:true}})} element={value} setElement={onChange} name="Confirmar Senha" icon={<MaterialIcons name="lock-outline" size={24} color={errors.password?.message?"red":"#808B96"} />}/>)
                 }/>
             {/* <Button title="teste" onPress={handleSubmit(singup)} /> */}
              <ButtonSingup handlesubmit={handleSubmit(singup)}/>

@@ -1,0 +1,114 @@
+{
+  "project_info": {
+    "project_number": "659075767234",
+    "project_id": "gcpocket-4f325",
+    "storage_bucket": "gcpocket-4f325.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:659075767234:android:9c8618f44168348457d45b",
+        "android_client_info": {
+          "package_name": "com.gcpocket.fire"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "659075767234-b3m7q0k82aoomlncih9ubhur0g6jn7l4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.gcpocket.fire",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "659075767234-mpj2et7qddcqb91sf129ge8k5lo4i75t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9i4My5hDBC5V6fKXajrzFDdYbwEgs1bU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "659075767234-mpj2et7qddcqb91sf129ge8k5lo4i75t.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "659075767234-27mmt08v4v7dfme0qencb334osbji7tg.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.lebelilo.gcpocket"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:659075767234:android:350e0c3d8ab5d9fe57d45b",
+        "android_client_info": {
+          "package_name": "com.lebelilo.gcpocket"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "659075767234-36dr150buk31n9is8p25rnbl843puqcn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.lebelilo.gcpocket",
+            "certificate_hash": "dcf5ac998ae11d84227dc686a92148b3f6399fad"
+          }
+        },
+        {
+          "client_id": "659075767234-kf3nr63u7nahecu5uouk0fbno0kpsin4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.lebelilo.gcpocket",
+            "certificate_hash": "b598297796040dd6d3569cdb7eb61380043a9c29"
+          }
+        },
+        {
+          "client_id": "659075767234-s0n1lqajt5tnal9id5qvh8jpv5huggq6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.lebelilo.gcpocket",
+            "certificate_hash": "ea6bc10f9e287c3d79d95f66d89ad0fc4ad3fd5b"
+          }
+        },
+        {
+          "client_id": "659075767234-mpj2et7qddcqb91sf129ge8k5lo4i75t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9i4My5hDBC5V6fKXajrzFDdYbwEgs1bU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "659075767234-mpj2et7qddcqb91sf129ge8k5lo4i75t.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "659075767234-27mmt08v4v7dfme0qencb334osbji7tg.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.lebelilo.gcpocket"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

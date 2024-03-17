@@ -10,6 +10,7 @@ import { useEffect } from "react";
 import { Button, Text, View } from "react-native";
 
 export default function verifyEmail(){
+  const currentUser = getAuth().currentUser
     const {user, singout} = useDataUser()
     useEffect(()=>{
       
@@ -42,7 +43,7 @@ export default function verifyEmail(){
             <Text style={{fontSize:18, textAlign:"justify", width:"90%"}}>Enviamos um link de confirmação para o seu email. Verifique em sua lixeira ou caixa de span. 
             Após a confirmação clique no botão recarregar o app. Caso não tenha recebido clique no botão para reenviar um novo link de verificação.
             </Text>
-            <ButtonForm bg="black" textColor="white" handleButton={()=>reSendEmail(user as User)} title="Não recebi. Reenviar Email"/>
+            <ButtonForm bg="black" textColor="white" handleButton={()=>reSendEmail(currentUser as User)} title="Não recebi. Reenviar Email"/>
             <ButtonForm bg="white" textColor="black" handleButton={()=>reloadApp()} title="Recarregar App"/>
             <View style={{position:"absolute", bottom:20, width:"100%"}}>
             <ButtonForm handleButton={singout} title="Sair"/>

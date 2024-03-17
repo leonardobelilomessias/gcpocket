@@ -10,7 +10,7 @@ export function GcProfileScreen() {
 
             <ScrollView  showsVerticalScrollIndicator={false}>
         <View style={{backgroundColor:'white', flex:1, paddingHorizontal:12}}>
-            <HeaderGcProfile  name='Vine' id='0245' image_profile={null}/>
+            <HeaderGcProfile  name='Vine' id='0245' image_profile={""}/>
             <View style={{  marginVertical: 8 , backgroundColor:'white'}}>
                 <Text style={{ fontWeight: 'bold' }}>Sobre</Text>
                 <Text>Empreendedor social  a 5 anos na área de desenvolvimento social. Com 2 projetos em curso e mais de 2 mil jovens alcançados.</Text>
@@ -21,13 +21,13 @@ export function GcProfileScreen() {
                 <View style={{ backgroundColor: "gray", width: 1, height: 40 }} />
                 <View style={{ flexDirection: "row", width: 100, marginLeft: 8, alignItems: "center" }}>
                     <View >
-                        <Image style={{ width: 30, height: 30, backgroundColor: "gray", borderRadius: 50, marginRight: 8 }} />
+                        <Image source={imageprofile} style={{ width: 30, height: 30, backgroundColor: "gray", borderRadius: 50, marginRight: 8 }} />
                     </View>
                     <Text style={{ fontWeight: "bold", textAlign: 'center', color: 'black' }}>Henrique</Text>
                 </View>
             </View>
                 <CardStaff/>
-                <GcMap/>
+                {/* <GcMap/> */} 
                 <ListDevotional/>
         </View>
             </ScrollView>
@@ -43,7 +43,7 @@ function CardStaff() {
                 <View style={{ backgroundColor: "gray", width: 1, height: 40 }} />
                 <View style={{ flexDirection: "row", width: 100, marginLeft: 8, alignItems: "center" }}>
                     <View >
-                        <Image style={{ width: 30, height: 30, backgroundColor: "gray", borderRadius: 50, marginRight: 8 }} />
+                        <Image source={imageprofile} style={{ width: 30, height: 30, backgroundColor: "gray", borderRadius: 50, marginRight: 8 }} />
                     </View>
                     <Text style={{ fontWeight: "bold", textAlign: 'center', color: 'black' }}>Bruno</Text>
                 </View>
@@ -97,7 +97,7 @@ function ListDevotional(){
     <View style={{padding:8, borderWidth:1,borderColor:"#EAEDED", marginVertical:8}}>
         <View style={{flexDirection:"row", alignItems:'center'}}>
             <View style={{width:30, height:30, borderRadius:30, marginRight:8}}>
-                <Image style={{width:30, height:30, borderRadius:30}} source={imageprofile}/>
+                <Image  style={{width:30, height:30, borderRadius:30}} source={imageprofile}/>
             </View>
             <Text style={{fontWeight:'500'}}>Name user</Text>
         </View>

@@ -8,7 +8,7 @@ export default function profile() {
   const name = "my name"
   const id="5556596"
   return (
-    <UserProfileScreen  name={name}  id_user={id}/>
+    <UserProfileScreen />
   );
 }
 

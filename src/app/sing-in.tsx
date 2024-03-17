@@ -8,7 +8,6 @@ import { View } from 'react-native';
 
 export default function SingIn() {
 const {user, token,loadLogin} = useDataUser()
-console.log("Aquiii no singiin",token)
   useEffect(()=>{
      const loading = false
      const tokenAgent = ""
@@ -29,7 +28,7 @@ if(token){
 
   return (
           <>
-            <StatusBar backgroundColor='black'/>
+            <StatusBar backgroundColor='black' style='inverted'/>
             <Singin/>
           </>
 
