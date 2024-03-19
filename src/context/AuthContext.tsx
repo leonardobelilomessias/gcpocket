@@ -7,7 +7,6 @@ import { GoogleSignin, statusCodes } from "@react-native-google-signin/google-si
 import { router } from "expo-router";
 import { User, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword ,AuthError,AuthErrorCodes, Auth, sendEmailVerification, UserCredential,} from "firebase/auth";
 import { Firestore, addDoc, collection, getDoc, getDocs, where , } from "firebase/firestore";
-
 import { ReactElement, createContext, useContext, useEffect, useState } from "react";
 GoogleSignin.configure(
     {
@@ -179,7 +178,13 @@ export const useDataUser= ()=> useContext(AuthContext)
 
 async function createUserFirestore(user:UserAuthProps){
     const usersCollection = await firestore().collection('users').where('email', '==', user?.email).get();
-    if (usersCollection.empty){
-        addDoc(collection(FIRESTORAGE_DB,"users"),user)
+    try{
+
+        if (usersCollection.empty){
+            const usersref = firestore().collection('users');
+            await usersref.doc(user.id).set(user);
+        }
+    }catch(err){
+        console.log("houve um erro = ",err)
     }
   }

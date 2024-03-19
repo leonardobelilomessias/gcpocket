@@ -16,17 +16,18 @@ export function CreateScreen(){
 const [status, setStatus] = useState("start")
 const [load,setLoad] = useState(false)
 const navigation = useNavigation();
+const [idDevotionalCreated, setIdDevotionalCreated] = useState("")
 const params = useLocalSearchParams();
 
  switch (status) {
     case 'start':
-        return(<StartCreateDevotional load={load} setLoad={setLoad} setStatus={setStatus} status={status}/>)
+        return(<StartCreateDevotional setIdDevotionalCreated={setIdDevotionalCreated} load={load} setLoad={setLoad} setStatus={setStatus} status={status}/>)
     case'creating':
         return(<CreatingDevotional/>)
     case"created":
-        return <CreatedDevotional/>
+        return <CreatedDevotional setStatus={setStatus} idDevotionalCreated={idDevotionalCreated}/>
     default:
-        return(<StartCreateDevotional load={load} setLoad={setLoad} setStatus={setStatus} status={status}/>)
+        return(<StartCreateDevotional  setIdDevotionalCreated={setIdDevotionalCreated} load={load} setLoad={setLoad} setStatus={setStatus} status={status}/>)
 
  }
 }
